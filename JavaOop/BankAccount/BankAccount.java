@@ -6,7 +6,7 @@ public class BankAccount{
     private static int numberOfAccounts = 0;
     private static double allAccountsTotal = 0;
 
-
+//Method to instantiate a bank account
     public BankAccount(double checkingBal, double savingsBal){
         this.accountNumber = generateAccountNumber();
         checkingBalance = checkingBal;
@@ -15,16 +15,19 @@ public class BankAccount{
         allAccountsTotal += checkingBalance + savingsBalance;
     }
 
+//Getter that returns number of accounts the bank has.
     public static int getNumberOfAccounts(){
         System.out.println("There are currently " + numberOfAccounts + " accounts at this bank.");
         return numberOfAccounts;
     }
 
+//Getter that returns the ammount of all accounts
     public static double getTotalAccountAmount(){
         System.out.printf("This bank currently has $%.2f within all accounts.\n", allAccountsTotal);
         return allAccountsTotal;
     }
 
+//Setter that creates a new account number
     private String generateAccountNumber(){
         Random random = new Random();
 
@@ -33,17 +36,20 @@ public class BankAccount{
             return accountNumber;
     }
 
+//Getter that displays checking account information
     public double displayCheckingAccount(){
         System.out.printf("The checking account associated with %s has a balance of $%.2f\n", accountNumber, checkingBalance);
         return checkingBalance;
     }
 
+//Getter that displays savings account information
     public double displaySavingsAccount(){
         System.out.printf("The savings account associated with %s has a balance of $%.2f\n", accountNumber, savingsBalance);
         return savingsBalance;
     }
 
-    public Boolean depositTo(Boolean checking, double amount) {
+//Setter that deposits money into bank account
+    public Boolean deposit(Boolean checking, double amount) {
 		
 		allAccountsTotal += amount;
 		
@@ -58,7 +64,8 @@ public class BankAccount{
 		return true;
     }
 
-    public boolean withdrawFrom(boolean checking, double amount) {
+//Setter that withdraws money from bank account
+    public boolean withdraw(boolean checking, double amount) {
 		if (checking) {
 			if (checkingBalance - amount >= 0) {
 				checkingBalance -= amount;
