@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+#date{
+	color:blue;
+	display:center;
+}
+
+#time{
+	color:green;
+	display:center;
+}
+#wrapper{
+	display:flex;
+	justify-content:center;
+}
